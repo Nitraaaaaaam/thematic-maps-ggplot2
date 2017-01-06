@@ -95,7 +95,7 @@ text(x = 33.1, y = 0.16, label = "Average age", cex = 0.8, adj = c(0,1),
      font = 3, col = "#4D3E71")
 ```
 
-![](README_files/figure-markdown_github/cars-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
 
 ``` r
 # dev.off()
