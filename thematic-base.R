@@ -1,33 +1,10 @@
-``` r
 # packages nécessaires
 library(rgdal)
-```
-
-    ## Loading required package: sp
-
-    ## rgdal: version: 1.2-4, (SVN revision 643)
-    ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-    ##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
-    ##  Path to GDAL shared files: /usr/local/share/gdal
-    ##  Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]
-    ##  Path to PROJ.4 shared files: (autodetected)
-    ##  Linking to sp version: 1.2-3
-
-``` r
 library(raster)
 library(cartography)
 
 # import des données 
 gde_15 <- readOGR("input/geodata/gde-1-1-15.shp", layer = "gde-1-1-15")
-```
-
-    ## OGR data source with driver: ESRI Shapefile 
-    ## Source: "input/geodata/gde-1-1-15.shp", layer: "gde-1-1-15"
-    ## with 2324 features
-    ## It has 2 fields
-    ## Integer64 fields read as strings:  BFS_ID
-
-``` r
 relief <- raster("input/geodata/02-relief-georef-clipped-resampled.tif")
 age <- read.csv("input/avg_age_15.csv", stringsAsFactors = F)
 
@@ -93,40 +70,8 @@ axis(side = 1, at = bks[c(2,4,6)], labels = round(bks[c(2,4,6)], 1),
      cex.axis = 0.5, tick = FALSE, line = -1.1, col.axis  = "grey20")
 text(x = 33.1, y = 0.16, label = "Average age", cex = 0.8, adj = c(0,1), 
      font = 3, col = "#4D3E71")
-```
 
-![](index_files/figure-markdown_github/cars-1.png)
-
-``` r
 # dev.off()
 
 
 sessionInfo()
-```
-
-    ## R version 3.3.2 (2016-10-31)
-    ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Ubuntu 16.04.1 LTS
-    ## 
-    ## locale:
-    ##  [1] LC_CTYPE=fr_FR.UTF-8       LC_NUMERIC=C              
-    ##  [3] LC_TIME=fr_FR.UTF-8        LC_COLLATE=fr_FR.UTF-8    
-    ##  [5] LC_MONETARY=fr_FR.UTF-8    LC_MESSAGES=fr_FR.UTF-8   
-    ##  [7] LC_PAPER=fr_FR.UTF-8       LC_NAME=C                 
-    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-    ## [11] LC_MEASUREMENT=fr_FR.UTF-8 LC_IDENTIFICATION=C       
-    ## 
-    ## attached base packages:
-    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
-    ## 
-    ## other attached packages:
-    ## [1] cartography_1.4.1 raster_2.5-8      rgdal_1.2-4       sp_1.2-3         
-    ## 
-    ## loaded via a namespace (and not attached):
-    ##  [1] Rcpp_0.12.8.2      lattice_0.20-34    class_7.3-14      
-    ##  [4] digest_0.6.10      rprojroot_1.1      grid_3.3.2        
-    ##  [7] backports_1.0.4    magrittr_1.5       e1071_1.6-7       
-    ## [10] evaluate_0.10      stringi_1.1.2      rmarkdown_1.2.9000
-    ## [13] tools_3.3.2        stringr_1.1.0      yaml_2.1.14       
-    ## [16] classInt_0.1-23    rgeos_0.3-21       htmltools_0.3.5   
-    ## [19] knitr_1.15.1
